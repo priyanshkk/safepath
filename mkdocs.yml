@@ -1,0 +1,20 @@
+site_name: safepath
+site_description: Path-traversal defence for Python file-serving apps
+repo_url: https://github.com/priyanshkk/safepath
+repo_name: priyanshkk/safepath
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Architecture: architecture.md
+  - Usage guide: usage.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences

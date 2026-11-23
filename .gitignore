@@ -1,0 +1,36 @@
+# Byte-compiled / optimised files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+.hatch/
+pip-wheel-metadata/
+
+# Virtual environments and secrets
+.venv/
+venv/
+env/
+ENV/
+.env
+
+# Test and coverage artifacts
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+junit.xml
+
+# Editors and OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db

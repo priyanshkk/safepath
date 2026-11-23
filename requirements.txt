@@ -1,0 +1,3 @@
+# safepath has zero runtime dependencies.
+#   pip install -r requirements.txt
+-e .
