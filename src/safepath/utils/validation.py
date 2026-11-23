@@ -52,15 +52,20 @@ def split_checked(raw: str) -> list[str]:
 
     # POSIX treats backslash as an ordinary filename character, but attackers
     # routinely use it as a separator to bypass POSIX-only filters.
-    if os.name != "nt" and "\\" in decoded:
-        raise UnsafePathError(
-            "Backslash separators are not accepted on this platform.", Reason.TRAVERSAL
-        )
-
+    # Classify absolute/drive/UNC forms first so they report ABSOLUTE_PATH on
+    # every platform. On POSIX, os.path.isabs() does not recognise Windows
+    # forms, so the explicit prefix checks are required.
     if decoded.startswith(("/", "\\")) or WINDOWS_DRIVE.match(decoded) or os.path.isabs(decoded):
         raise UnsafePathError(
             "Absolute paths, drive letters, and UNC paths are not allowed.",
             Reason.ABSOLUTE_PATH,
+        )
+
+    # POSIX treats backslash as an ordinary filename character, but attackers
+    # routinely use it as a separator to bypass POSIX-only filters.
+    if os.name != "nt" and "\\" in decoded:
+        raise UnsafePathError(
+            "Backslash separators are not accepted on this platform.", Reason.TRAVERSAL
         )
 
     parts = [part for part in SEPARATORS.split(decoded) if part not in ("", ".")]

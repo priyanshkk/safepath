@@ -67,7 +67,7 @@ containment checks.
 
 The base directory is trusted; everything supplied by the user is not.
 Out of scope: authorisation, TOCTOU races after validation, and bugs in the
-caller's later I/O. See [SECURITY.md](../SECURITY.md) and the README threat
+caller's later I/O. See [SECURITY.md](https://github.com/priyanshkk/safepath/blob/main/SECURITY.md) and the README threat
 model section.
 
 ## Testing approach
